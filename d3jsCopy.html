@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>D3JS</title>
+		<script src="https://d3js.org/d3.v7.min.js"></script>
+		<style>
+			svg rect {
+				fill: lightblue;
+			}
+
+			svg rect:hover {
+				fill: #358fad;
+				font: 17px blue;
+
+			}
+
+			text {
+				fill: black;
+				/* transform: rotate(180deg); */
+			}
+
+			.graph {
+				width: 400px;
+				border-left: 1px solid black;
+				border-top: 1px solid black;
+				transform: rotate(270deg);
+				padding-bottom: 20px;
+				padding-top: 10px;
+			}
+
+			#marks {
+				position: fixed;
+				padding-top: 150px;
+			}
+
+			#sub {
+				position: fixed;
+				padding-top: 120px;
+				padding-left: 150px;
+			}
+
+			.lis {
+				position: fixed;
+				padding-top: 70px;
+				padding-left: 90px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="marks">Marks</div>
+		<div class="graph"></div>
+		<pre class="lis"> LSS  MFCA  OOP  CN   WAP</pre>
+		<div id="sub">Subjects</div>
+		<script>
+			var width = 400;
+			var barHeight = 40;
+			var widthFactor = 3;
+			var data = [70, 85, 95, 75, 90];
+
+			var graph = d3.select(".graph")
+				.append("svg")
+				.attr("width", width)
+				.attr("height", barHeight * data.length);
+
+			var bar = graph.selectAll("g")
+				.data(data)
+				.enter()
+				.append("g")
+				.attr("transform", function (d, i) {
+					return "translate(0, " + i * barHeight + ")";
+				});
+
+			bar.append("rect")
+				.attr("width", function (d) { return d * widthFactor; })
+				.attr("height", barHeight - 5);
+
+			bar.append("text")
+				// .attr('transform', 'rotate(10deg)')
+				.attr("x", function (d) { return ((widthFactor * d)); })
+				.attr("y", barHeight / 2)
+				.attr("dy", "0.35em")
+				.text(function (d) { return d; })
+				
+			
+
+		</script>
+	</body>
+
+</html>
