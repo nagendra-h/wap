@@ -1,0 +1,46 @@
+
+h1 {
+     color:black;
+	background-color:grey;
+	text-align:center;
+	padding:90px;
+   }
+header img{
+                float:left;
+                margin-top:-30px;
+           }
+ul
+            {      
+                 list-style-type:none;
+                 padding:30px;
+                 margin:0px;
+                 background-color:black;
+	     }
+li{
+	
+     float:left;
+     padding:0px 10px;
+	color:white;	
+}
+li a{
+      color:white;
+}
+
+div.gallery{
+		border:1px solid black;
+		margin:5px;
+		width:200px;
+		float:left;
+		background-color:lightblue;       	
+}
+            
+div.gallery img{
+                 width:100%;
+		height:auto;
+}
+
+footer{
+       backoround-color:blue;
+		
+	}
+
